@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <body>
+        <div th:fragment="head">
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+            <link rel="stylesheet" href="/static/css/bootstrap.css">
+        </div>
+
+<!--        <div th:fragment="menu">-->
+<!--            <ul class="nav nav-pills">-->
+<!--                <li class="nav-item">-->
+<!--                    <a class="nav-link"-->
+<!--                       th:classappend="${#httpServletRequest.getRequestURI() == '/' ? 'active':''}"-->
+<!--                       th:href="@{/}">dashboard</a>-->
+<!--                </li>-->
+<!--                <li class="nav-item">-->
+<!--                    <a class="nav-link"-->
+<!--                       th:classappend="${#httpServletRequest.getRequestURI() == '/account' ? 'active':''}"-->
+<!--                       th:href="@{/account}">Account</a>-->
+<!--                </li>-->
+<!--                <li class="nav-item">-->
+<!--                    <a class="nav-link"-->
+<!--                       th:classappend="${#httpServletRequest.getRequestURI() == '/board' ? 'active':''}"-->
+<!--                       th:href="@{/board}">Board</a>-->
+<!--                </li>-->
+<!--            </ul>-->
+<!--            <p></p>-->
+<!--        </div>-->
+
+        <div th:fragment="nav">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+                <a class="navbar-brand" href="/">LOGO</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item" th:classappend="${#httpServletRequest.getRequestURI() == '/' ? 'active':''}">
+                            <a class="nav-link" th:href="@{/}">Home <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item" th:classappend="${#httpServletRequest.getRequestURI() == '/account' ? 'active':''}">
+                            <a class="nav-link" th:href="@{/account}">Account</a>
+                        </li>
+                        <li class="nav-item" th:classappend="${#httpServletRequest.getRequestURI() == '/board' ? 'active':''}">
+                            <a class="nav-link" th:href="@{/board}">Board</a>
+                        </li>
+                    </ul>
+                </div>
+                <form action="/logout" method="post">
+                    <button type="submit" class="btn btn-sm bg-warning">logout</button>
+                </form>
+            </nav>
+            <p></p>
+        </div>
+
+        <div th:fragment="script">
+            <script src="/static/js/jquery.js"></script>
+            <script src="/static/js/popper.js"></script>
+            <script src="/static/js/bootstrap.js"></script>
+        </div>
+
+        <div th:fragment="copy">
+            <div class="d-flex justify-content-center">
+                &copy; 2019 springboot workshop
+            </div>
+        </div>
+    </body>
+</html>

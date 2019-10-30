@@ -7,13 +7,14 @@ import lombok.*;
 @Getter
 @Setter
 @NoArgsConstructor
+@RequiredArgsConstructor
 @AllArgsConstructor
 public class AccountModel {
     private Long id;
-    private String username;
-    private String password;
+    @NonNull private String username;
+    @NonNull private String password;
 
     public AccountDto toDto() {
-        return new AccountDto(id, username, password);
+        return new AccountDto(username, password);
     }
 }

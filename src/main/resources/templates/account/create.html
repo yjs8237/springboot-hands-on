@@ -1,0 +1,55 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <div th:insert="~{layout/common :: head}"></div>
+    <title>Account List</title>
+</head>
+<body>
+<div class="container-fluid">
+    <div class="d-flex justify-content-center">
+        <div class="col-sm-12 col-md-10 col-lg-8">
+            <div th:insert="~{layout/common :: nav}"></div>
+            <div class="row">
+                <div class="col-12">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item" aria-current="page"><a href="/account">Account</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Create</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 text-right">
+                    <h2>Account Create</h2>
+                    <p></p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <form th:action="@{/account/create}" method="post">
+                        <div class="form-group">
+                            <label>Username</label>
+                            <input type="text" class="form-control" name="username" placeholder="Enter username">
+                        </div>
+                        <div class="form-group">
+                            <label>Username</label>
+                            <input type="password" class="form-control" name="password" placeholder="Enter password">
+                        </div>
+                        <div class="row">
+                            <div class="col-12 text-center">
+                                <button type="submit" class="btn btn-primary">submit</button>
+                                <a class="btn btn-danger" href="/account/list">list</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div th:insert="~{layout/common :: copy}"></div>
+</div>
+
+<div th:insert="~{layout/common :: script}"></div>
+</body>
+</html>

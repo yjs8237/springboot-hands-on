@@ -11,11 +11,10 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 public class AccountDto {
-    private Long id;
     private String username;
     private String password;
 
     public AccountModel toModel() {
-        return new AccountModel(id, username, password);
+        return new AccountModel(username, password);
     }
 }
