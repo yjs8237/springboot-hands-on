@@ -8,9 +8,14 @@ spring:
     view:
       prefix: templates
       suffix: .html
-
     static-path-pattern: /static/**
 
+  autoconfigure:
+    exclude: org.springframework.boot.autoconfigure.web.ErrorMvcAutoConfiguration
+
+server:
+  servlet:
+    context-path: /admin
 logging:
   level:
     root: info

@@ -3,7 +3,6 @@ package kr.co.fastcampuse.web.config;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
-import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
@@ -29,12 +28,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .formLogin()
                     .loginPage("/login")
                     .defaultSuccessUrl("/")
-                .and()
-                .exceptionHandling().accessDeniedPage("/static/image/403.jpg")
+                    .failureUrl("/login?error")
+                    .permitAll()
+//                .and()
+//                .exceptionHandling().accessDeniedPage("/error/403")
                 .and()
                 .logout().permitAll()
                     .logoutRequestMatcher(new AntPathRequestMatcher("/logout", HttpMethod.POST.name()))
-                    .logoutSuccessUrl("/login")
+                    .logoutSuccessUrl("/login?logout")
                     .deleteCookies("JSESSIONID")
                 .and()
                 .csrf().disable(); // logout을 위해 csrf disable 추가.
