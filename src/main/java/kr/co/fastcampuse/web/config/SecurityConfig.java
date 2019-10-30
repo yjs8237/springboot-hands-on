@@ -24,8 +24,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.authorizeRequests()
                 .antMatchers("/account/**").hasRole("ADMIN")
                 .antMatchers("/board/**").hasRole("USER")
+                .anyRequest().authenticated()
                 .and()
                 .formLogin()
+                    .loginPage("/login")
+                    .defaultSuccessUrl("/")
                 .and()
                 .exceptionHandling().accessDeniedPage("/static/image/403.jpg")
                 .and()
@@ -35,14 +38,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                     .deleteCookies("JSESSIONID")
                 .and()
                 .csrf().disable(); // logout을 위해 csrf disable 추가.
-    }
-
-    @Override
-    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.inMemoryAuthentication()
-                .withUser("admin").password(passwordEncoder().encode("admin")).roles("ADMIN")
-                .and()
-                .withUser("user").password(passwordEncoder().encode("user")).roles("USER");
     }
 
     @Bean
