@@ -1,0 +1,57 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <div th:insert="~{layout/common :: head}"></div>
+    <title>Please Login</title>
+    <style>
+    body {
+      padding-top: 40px;
+      padding-bottom: 40px;
+      background-color: #eee;
+    }
+    </style>
+</head>
+<body>
+<div class="container-fluid">
+    <div class="d-flex justify-content-center">
+        <div class="col-sm-12 col-md-10 col-lg-8">
+            <div class="row">
+                <div class="col-2"></div>
+                <div class="col-8">
+                    <form name="f" th:action="@{/login}" method="post">
+                        <div class="row">
+                            <div class="col-12 text-center">
+                                <legend>Please Login</legend>
+                            </div>
+                        </div>
+                        <div th:if="${param.error}" class="alert alert-error">
+                            Invalid username and password.
+                        </div>
+                        <div th:if="${param.logout}" class="alert alert-success">
+                            You have been logged out.
+                        </div>
+                        <div class="form-group">
+                            <label for="username">Username</label>
+                            <input type="text" class="form-control" id="username" name="username" placeholder="Enter username">
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" class="form-control" id="password" name="password" placeholder="Enter Password">
+                        </div>
+                        <div class="row">
+                            <div class="col-12 text-right">
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div th:insert="~{layout/common :: copy}"></div>
+</div>
+
+<div th:insert="~{layout/common :: script}"></div>
+</body>
+</html>
+
