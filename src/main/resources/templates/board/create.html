@@ -1,0 +1,39 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <div th:insert="~{layout/common :: head}"></div>
+    <title>Account List</title>
+</head>
+<body>
+<div class="container-fluid">
+    <div class="d-flex justify-content-center">
+        <div class="col-sm-12 col-md-10 col-lg-8">
+            <div th:insert="~{layout/common :: nav}"></div>
+            <div class="row">
+                <div class="col-12">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item" aria-current="page"><a href="/board">Board</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Create</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 text-right">
+                    <h2>Board Create</h2>
+                    <p></p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div th:insert="~{layout/common :: copy}"></div>
+</div>
+
+<div th:insert="~{layout/common :: script}"></div>
+</body>
+</html>

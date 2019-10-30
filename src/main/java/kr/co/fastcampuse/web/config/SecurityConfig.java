@@ -22,9 +22,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .antMatchers("/**").authenticated()
+                .antMatchers("/account/**").hasRole("ADMIN")
+                .antMatchers("/board/**").hasRole("USER")
                 .and()
                 .formLogin()
+                .and()
+                .exceptionHandling().accessDeniedPage("/static/image/403.jpg")
                 .and()
                 .logout().permitAll()
                     .logoutRequestMatcher(new AntPathRequestMatcher("/logout", HttpMethod.POST.name()))
