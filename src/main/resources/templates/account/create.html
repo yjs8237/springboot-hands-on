@@ -27,14 +27,17 @@
             </div>
             <div class="row">
                 <div class="col-12">
-                    <form th:action="@{/account/create}" method="post">
-                        <div class="form-group">
-                            <label>Username</label>
-                            <input type="text" class="form-control" name="username" placeholder="Enter username">
+                    <form th:action="@{/account/create}" method="post" th:object="${account}">
+                        <div class="alert alert-danger" th:if="${#fields.hasErrors('*')}">
+                            <p th:each="err : ${#fields.errors('*')}" th:text="${err}"></p>
                         </div>
                         <div class="form-group">
-                            <label>Username</label>
-                            <input type="password" class="form-control" name="password" placeholder="Enter password">
+                            <label for="username">Username</label>
+                            <input type="text" class="form-control" id="username" placeholder="Enter username" th:field="*{username}">
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Username</label>
+                            <input type="password" class="form-control" id="password" placeholder="Enter password" th:field="*{password}">
                         </div>
                         <div class="row">
                             <div class="col-12 text-center">
