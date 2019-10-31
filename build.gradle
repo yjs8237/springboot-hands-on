@@ -6,7 +6,7 @@ plugins {
 
 group = 'kr.co.fastcampuse'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '1.8'
+sourceCompatibility = '12'
 
 configurations {
 	developmentOnly
@@ -26,6 +26,7 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.springframework.boot:spring-boot-starter-security'
+	implementation 'org.springframework.data:spring-data-commons:2.2.0.RELEASE'
 	compileOnly 'org.projectlombok:lombok'
 	runtimeOnly 'com.h2database:h2'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
