@@ -18,8 +18,9 @@
                             <a class="nav-link" th:href="@{/}">Home <span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
+                            <!-- TODO page, size, sort 파라메터 추가  -->
                             <a class="nav-link"
-                               th:href="@{${'/account/list?page=0&size=10&sort=username,asc'}}">Account</a>
+                               th:href="@{'/account/list'}">Account</a>
 
                         </li>
                         <li class="nav-item">

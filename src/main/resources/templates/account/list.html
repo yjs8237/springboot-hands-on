@@ -1,14 +1,14 @@
 <!doctype html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <div th:insert="~{layout/common :: head}"></div>
+    <th:block th:insert="~{layout/common :: head}"></th:block>
     <title>Springboot Workshop Dashboard</title>
 </head>
 <body>
 <div class="container-fluid">
     <div class="d-flex justify-content-center">
         <div class="col-sm-12 col-md-10 col-lg-8">
-            <div th:insert="~{layout/common :: nav}"></div>
+            <th:block th:insert="~{layout/common :: nav}"></th:block>
             <div class="row">
                 <div class="col-12">
                     <nav aria-label="breadcrumb">
@@ -26,6 +26,7 @@
                     </div>
                 </div>
             </div>
+            <!-- thymeleaf 문법 간단히 설명 -->
             <div class="row">
                 <div class="col-12">
                     <table class="table">
@@ -37,7 +38,7 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr th:each="account, stat : ${page.content}">
+                        <tr th:each="account, stat : ${accounts}">
                             <td scope="row" th:text="${stat.count}"></td>
                             <td th:text="${account.username}"></td>
                             <td th:text="${account.password}"></td>
@@ -48,29 +49,15 @@
             </div>
             <div class="row">
                 <div class="col-12">
-                    <nav aria-label="Page navigation example" th:if="${page.totalPages > 0}">
-                        <ul class="pagination justify-content-center">
-                            <li class="page-item" th:classappend="${page.first ? 'disabled' : ''}">
-                                <a class="page-link" th:href="@{/account/list(page=${page.number - 1}, size=${page.size})}" tabindex="-1" aria-disabled="true">Previous</a>
-                            </li>
-                            <li class="page-item"
-                                th:each="item, stat : ${ #numbers.sequence(0, page.totalPages - 1)}"
-                                th:classappend="${item == page.number ? 'active':''}">
-                                <a class="page-link" th:href="@{/account/list(page=${item}, size=${page.size})}" th:text="${stat.count}"></a>
-                            </li>
-                            <li class="page-item" th:classappend="${page.last ? 'disabled' : ''}">
-                                <a class="page-link" th:href="@{/account/list(page=${page.number + 1}, size=${page.size})}" tabindex="-1" aria-disabled="true">Next</a>
-                            </li>
-                        </ul>
-                    </nav>
+                    <!-- TODO paging -->
                 </div>
             </div>
        </div>
     </div>
-    <div th:insert="~{layout/common :: copy}"></div>
+    <th:block th:insert="~{layout/common :: copy}"></th:block>
 </div>
 ​
-<div th:insert="~{layout/common :: script}"></div>
+<th:block th:insert="~{layout/common :: script}"></th:block>
 </body>
 </html>
 

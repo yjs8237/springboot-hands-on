@@ -10,12 +10,16 @@ spring:
       suffix: .html
     static-path-pattern: /static/**
 
-  autoconfigure:
-    exclude: org.springframework.boot.autoconfigure.web.ErrorMvcAutoConfiguration
+# TODO custom error 설정
+#  autoconfigure:
+#    exclude: org.springframework.boot.autoconfigure.web.ErrorMvcAutoConfiguration
 
-server:
-  servlet:
-    context-path: /admin
+# TODO context path 추가 및 thymeleaf에 @{} 설명
+#server:
+#  servlet:
+#    context-path: /admin
+
+# TODO springboot 로깅 방법 설명 1. yaml, 2. logback.xml
 logging:
   level:
     root: info

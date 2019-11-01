@@ -1,49 +1,23 @@
 package kr.co.fastcampuse.web.config;
 
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.http.HttpMethod;
-import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.config.annotation.web.builders.WebSecurity;
-import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 @Configuration
-public class SecurityConfig extends WebSecurityConfigurerAdapter {
+public class SecurityConfig {
+    // TODO SecurityConfig: WebSecurityConfigurerAdapter - configure(WebSecurity web)
+    /* TODO configure(HttpSecurity http)
+        - formLogin 간단하게 설정, anyRequest authenticated
+        - password encorder - PasswordEncoder, NoOpPasswordEncoder, BCryptPasswordEncoder, DelegatingPasswordEncoder
+           https://docs.spring.io/spring-security/site/docs/4.2.4.RELEASE/apidocs/org/springframework/security/crypto/password/PasswordEncoder.html
+        - 로그아웃 설정
+        - formLogin 추가 설정
+        - role 적용 - /account, /board
+     */
+    // TODO filter 동작 설명: FilterChainProxy.getFilters
+    // spring security manual : https://docs.spring.io/spring-security/site/docs/5.2.0.RELEASE/reference/htmlsingle/#overall-architecture
+    // Authentication Architecture : https://springbootdev.com/2017/08/23/spring-security-authentication-architecture/#more-54
+    // spring security filter debugging: https://stackoverflow.com/questions/30855252/how-do-i-enable-logging-for-spring-security/41823422
 
-    @Override
-    public void configure(WebSecurity web) {
-        web.ignoring().antMatchers("/static/**");
-    }
 
-    @Override
-    protected void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests()
-                .antMatchers("/account/**").hasRole("ADMIN")
-                .antMatchers("/board/**").hasRole("USER")
-                .anyRequest().authenticated()
-                .and()
-                .formLogin()
-                    .loginPage("/login")
-                    .defaultSuccessUrl("/")
-                    .failureUrl("/login?error")
-                    .permitAll()
-//                .and()
-//                .exceptionHandling().accessDeniedPage("/error/403")
-                .and()
-                .logout().permitAll()
-                    .logoutRequestMatcher(new AntPathRequestMatcher("/logout", HttpMethod.POST.name()))
-                    .logoutSuccessUrl("/login?logout")
-                    .deleteCookies("JSESSIONID")
-                .and()
-                .csrf().disable(); // logout을 위해 csrf disable 추가.
-    }
-
-    @Bean
-    public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
-    }
 }
 

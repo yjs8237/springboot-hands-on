@@ -1,14 +1,14 @@
 <!doctype html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <div th:insert="~{layout/common :: head}"></div>
+    <th:block th:insert="~{layout/common :: head}"></th:block>
     <title>Account List</title>
 </head>
 <body>
 <div class="container-fluid">
     <div class="d-flex justify-content-center">
         <div class="col-sm-12 col-md-10 col-lg-8">
-            <div th:insert="~{layout/common :: nav}"></div>
+            <th:block th:insert="~{layout/common :: nav}"></th:block>
             <div class="row">
                 <div class="col-12">
                     <nav aria-label="breadcrumb">
@@ -31,9 +31,9 @@
             </div>
         </div>
     </div>
-    <div th:insert="~{layout/common :: copy}"></div>
+    <th:block th:insert="~{layout/common :: copy}"></th:block>
 </div>
 
-<div th:insert="~{layout/common :: script}"></div>
+<th:block th:insert="~{layout/common :: script}"></th:block>
 </body>
 </html>

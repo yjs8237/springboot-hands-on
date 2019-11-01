@@ -24,9 +24,11 @@ repositories {
 
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+	// TODO Bean Validation 관련, hibernate-validator 의존성 확인
 	implementation 'org.springframework.boot:spring-boot-starter-web'
-	implementation 'org.springframework.boot:spring-boot-starter-security'
-	implementation 'org.springframework.data:spring-data-commons:2.2.0.RELEASE'
+	// TODO spring security 추가
+	// TODO spring security test 추가
+	// TODO spring-data-commons 추가
 	compileOnly 'org.projectlombok:lombok'
 	runtimeOnly 'com.h2database:h2'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
@@ -34,6 +36,8 @@ dependencies {
 	testImplementation('org.springframework.boot:spring-boot-starter-test') {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
 	}
+	// TODO mockito
+	// TODO assertj
 }
 
 test {
