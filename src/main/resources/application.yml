@@ -15,9 +15,10 @@ spring:
 #    exclude: org.springframework.boot.autoconfigure.web.ErrorMvcAutoConfiguration
 
 # TODO context path 추가 및 thymeleaf에 @{} 설명
-#server:
-#  servlet:
-#    context-path: /admin
+# Root Context Path 가 변경되어도 타임리프안에서 @{ } 사용하게 되면 Root context 를 알아서매핑해준다.
+server:
+  servlet:
+    context-path: /admin
 
 # TODO springboot 로깅 방법 설명 1. yaml, 2. logback.xml
 logging:

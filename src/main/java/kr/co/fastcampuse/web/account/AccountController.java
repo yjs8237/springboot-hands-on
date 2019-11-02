@@ -1,6 +1,7 @@
 package kr.co.fastcampuse.web.account;
 
 import kr.co.fastcampuse.web.account.dto.AccountDto;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,8 +11,9 @@ import org.springframework.web.servlet.ModelAndView;
 import java.util.List;
 
 @Controller
+@AllArgsConstructor
 public class AccountController {
-    @Autowired AccountService accountService;
+    AccountService accountService;
 
     @GetMapping("/account/list")
     // TODO page, size, sort
@@ -25,6 +27,13 @@ public class AccountController {
     }
 
     // TODO GET /account/create
+    @GetMapping("/account/create")
+    public ModelAndView accountCreate() {
+        ModelAndView mv = new ModelAndView("account/create");
+        mv.addObject("username" , "username");
+        mv.addObject("password" , "password");
+        return mv;
+    }
     // TODO th:object 적용후 GET /account/create에 account model 추가
 
 

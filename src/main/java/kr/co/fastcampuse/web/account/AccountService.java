@@ -2,6 +2,7 @@ package kr.co.fastcampuse.web.account;
 
 import kr.co.fastcampuse.web.account.dto.AccountDto;
 import kr.co.fastcampuse.web.account.model.AccountModel;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -9,6 +10,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
+@AllArgsConstructor
 public class AccountService {
     @Autowired AccountRepository accountRepository;
 

@@ -27,6 +27,22 @@
             </div>
             <div class="row">
                 <div class="col-12">
+                    <form th:action="@{/account/create}" method="post" >
+                        <div class="form-group">
+                            <label for="username">Username</label>
+                            <input type="text" class="form-control" name="username" placeholder="Enter username" >
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" class="form-control" name="password" placeholder="Enter password">
+                        </div>
+                        <div class="row">
+                            <div class="col-12 text-center">
+                                <button type="submit" class="btn btn-primary">submit</button>
+                                <a class="btn btn-danger" th:href="@{/account/list}">list</a>
+                            </div>
+                        </div>
+                    </form>
                     <!-- TODO username, password post 전송 -->
                     <!-- TODO  th:object th:field  -->
                     <!-- TODO  error message  -->
